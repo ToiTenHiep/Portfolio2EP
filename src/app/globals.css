@@ -1,26 +1,369 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
+
+@theme {
+  --font-k2d: var(--font-k2d);
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #05010d;
+  --panel: #2b0015;
+  --panel-dark: #17000c;
+  --pink: #ff005d;
+  --cyan: #00ffee;
+  --muted: #a99aad;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: white;
+  overflow: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-k2d), sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.cyber-text-glow {
+  text-shadow:
+    0 0 6px rgba(0, 255, 238, 0.9),
+    0 0 18px rgba(0, 255, 238, 0.45);
+}
+
+.cyber-pink-glow {
+  box-shadow:
+    0 0 12px rgba(255, 0, 93, 0.6),
+    0 0 28px rgba(255, 0, 93, 0.25);
+}
+
+.cyber-cyan-glow {
+  box-shadow:
+    0 0 10px rgba(0, 255, 238, 0.8),
+    0 0 24px rgba(0, 255, 238, 0.35);
+}
+
+.cyber-card-glow {
+  box-shadow:
+    0 0 24px rgba(0, 255, 238, 0.16),
+    0 0 50px rgba(255, 0, 93, 0.14);
+}
+
+.cyber-detail-dot {
+  box-shadow: 0 0 10px rgba(0, 255, 238, 0.8);
+}
+
+.photo-glitch-wrap {
+  background: #080011;
+}
+
+.photo-glitch-main {
+  position: relative;
+  z-index: 1;
+  animation: photoGlitchMain 7s steps(1, end) infinite;
+}
+
+.photo-glitch-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.photo-glitch-copy-cyan {
+  filter: drop-shadow(-3px 0 0 rgba(0, 255, 240, 0.95));
+  animation: photoGlitchCyan 7s steps(1, end) infinite;
+}
+
+.photo-glitch-copy-pink {
+  filter: drop-shadow(3px 0 0 rgba(255, 0, 93, 0.95));
+  animation: photoGlitchPink 7s steps(1, end) infinite;
+}
+
+.photo-glitch-noise {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  opacity: 0;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.12) 0 1px,
+      transparent 1px 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 255, 240, 0.12) 0 1px,
+      transparent 1px 5px
+    );
+  animation: photoNoise 7s steps(1, end) infinite;
+}
+
+.photo-glitch-scan {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  z-index: 5;
+  width: 100%;
+  height: 38%;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 255, 240, 0.18),
+    rgba(255, 0, 93, 0.1),
+    transparent
+  );
+  animation: photoScan 7s linear infinite;
+}
+
+@keyframes photoGlitchMain {
+  0%,
+  88%,
+  100% {
+    transform: translate(0, 0);
+    filter: none;
+  }
+
+  89% {
+    transform: translate(-2px, 1px);
+    filter: contrast(1.2) brightness(1.12);
+  }
+
+  90% {
+    transform: translate(3px, -1px);
+    filter: contrast(1.35) brightness(1.2);
+  }
+
+  91% {
+    transform: translate(-1px, 2px);
+    filter: contrast(1.15);
+  }
+
+  92%,
+  96% {
+    transform: translate(0, 0);
+    filter: none;
+  }
+
+  97% {
+    transform: translate(2px, 0);
+    filter: brightness(1.22);
+  }
+
+  98% {
+    transform: translate(-2px, 0);
+    filter: contrast(1.3);
+  }
+}
+
+@keyframes photoGlitchCyan {
+  0%,
+  88%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+
+  89% {
+    opacity: 0.75;
+    transform: translate(-4px, 0);
+    clip-path: inset(8% 0 70% 0);
+  }
+
+  90% {
+    opacity: 0.9;
+    transform: translate(-6px, 1px);
+    clip-path: inset(42% 0 38% 0);
+  }
+
+  91% {
+    opacity: 0.6;
+    transform: translate(-3px, -1px);
+    clip-path: inset(72% 0 10% 0);
+  }
+
+  97% {
+    opacity: 0.7;
+    transform: translate(-5px, 0);
+    clip-path: inset(28% 0 54% 0);
+  }
+
+  98% {
+    opacity: 0;
+  }
+}
+
+@keyframes photoGlitchPink {
+  0%,
+  88%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+
+  89% {
+    opacity: 0.7;
+    transform: translate(4px, 0);
+    clip-path: inset(16% 0 62% 0);
+  }
+
+  90% {
+    opacity: 0.85;
+    transform: translate(6px, -1px);
+    clip-path: inset(52% 0 24% 0);
+  }
+
+  91% {
+    opacity: 0.5;
+    transform: translate(3px, 1px);
+    clip-path: inset(76% 0 8% 0);
+  }
+
+  97% {
+    opacity: 0.75;
+    transform: translate(5px, 0);
+    clip-path: inset(36% 0 44% 0);
+  }
+
+  98% {
+    opacity: 0;
+  }
+}
+
+@keyframes photoNoise {
+  0%,
+  88%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+
+  89%,
+  91% {
+    opacity: 0.28;
+    transform: translate(-2px, 1px);
+  }
+
+  90% {
+    opacity: 0.42;
+    transform: translate(2px, -1px);
+  }
+
+  97% {
+    opacity: 0.34;
+    transform: translate(1px, 0);
+  }
+
+  98% {
+    opacity: 0;
+  }
+}
+
+@keyframes photoScan {
+  0%,
+  83% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  88% {
+    opacity: 0.9;
+  }
+
+  94% {
+    opacity: 0.35;
+    transform: translateY(360%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(360%);
+  }
+}
+
+/* ================================
+   MOBILE LANDSCAPE AUTO ROTATE
+   Khi điện thoại đang dọc, giao diện tự xoay ngang.
+================================ */
+
+.mobile-landscape-shell {
+  position: relative;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  background: #05010d;
+}
+
+.mobile-landscape-stage {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* Điện thoại đang dọc -> xoay toàn bộ UI sang ngang */
+@media (max-width: 900px) and (orientation: portrait) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .mobile-landscape-shell {
+    position: fixed;
+    inset: 0;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+    background: #05010d;
+  }
+
+  .mobile-landscape-stage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100dvh;
+    height: 100dvw;
+    transform: translate(-50%, -50%) rotate(90deg);
+    transform-origin: center center;
+    overflow: hidden;
+  }
+}
+
+/* Điện thoại đã xoay ngang thật -> giữ layout bình thường */
+@media (max-width: 900px) and (orientation: landscape) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .mobile-landscape-shell,
+  .mobile-landscape-stage {
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+  }
 }
