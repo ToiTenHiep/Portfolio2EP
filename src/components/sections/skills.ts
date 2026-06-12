@@ -67,7 +67,7 @@ export const skills: SkillItem[] = [
     description:
       "UI/UX design, wireframe, prototype, auto layout, component system and design handoff.",
     iconType: "svg",
-    iconSrc: "/icons/skills/figma.svg",
+    iconSrc: "/icons/skills/Figma.svg",
   },
   {
     id: "blender",
@@ -78,7 +78,7 @@ export const skills: SkillItem[] = [
     description:
       "Basic 3D modeling, scene composition, object presentation and visual support for portfolio.",
     iconType: "svg",
-    iconSrc: "/icons/skills/blender.svg",
+    iconSrc: "/icons/skills/Blender.svg",
   },
   {
     id: "aseprite",
@@ -89,7 +89,7 @@ export const skills: SkillItem[] = [
     description:
       "Pixel art, sprite design, frame animation and game visual asset creation.",
     iconType: "svg",
-    iconSrc: "/icons/skills/aseprite.svg",
+    iconSrc: "/icons/skills/Aseprite.svg",
   },
 
   {
@@ -215,7 +215,7 @@ export const skills: SkillItem[] = [
     description:
       "Document formatting, report writing, table of contents and project documentation.",
     iconType: "svg",
-    iconSrc: "/icons/skills/word.svg",
+    iconSrc: "/icons/skills/Word.svg",
   },
   {
     id: "excel",
@@ -226,7 +226,7 @@ export const skills: SkillItem[] = [
     description:
       "Spreadsheet handling, formulas, data tracking, tables and simple statistics.",
     iconType: "svg",
-    iconSrc: "/icons/skills/excel.svg",
+    iconSrc: "/icons/skills/Excel.svg",
   },
   {
     id: "powerpoint",
@@ -237,6 +237,6 @@ export const skills: SkillItem[] = [
     description:
       "Slide design, project pitching, visual storytelling and presentation support.",
     iconType: "svg",
-    iconSrc: "/icons/skills/powerpoint.svg",
+    iconSrc: "/icons/skills/PowerPoint.svg",
   },
 ];

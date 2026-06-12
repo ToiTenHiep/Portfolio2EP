@@ -740,20 +740,20 @@ function PhotoBlock({ imageSrc }: { imageSrc?: string }) {
         {imageSrc && (
         <div className="photo-glitch-wrap relative h-full w-full overflow-hidden">
           <img
-            src="/profile/Me.png"
+            src="/Profile/Me.png"
             alt="About profile"
             className="photo-glitch-main h-full w-full object-cover"
           />
 
           <img
-            src="/profile/Me.png"
+            src="/Profile/Me.png"
             alt=""
             aria-hidden="true"
             className="photo-glitch-copy photo-glitch-copy-cyan h-full w-full object-cover"
           />
 
           <img
-            src="/profile/Me.png"
+            src="/Profile/Me.png"
             alt=""
             aria-hidden="true"
             className="photo-glitch-copy photo-glitch-copy-pink h-full w-full object-cover"
