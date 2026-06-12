@@ -303,12 +303,14 @@ select {
 }
 
 /* ================================
-   MOBILE LANDSCAPE AUTO ROTATE
-   Khi điện thoại đang dọc, giao diện tự xoay ngang.
+   MOBILE LANDSCAPE SCALE LOCK
+   Điện thoại sẽ hiển thị full layout 1366x768.
 ================================ */
 
 .mobile-landscape-shell {
-  position: relative;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
   width: 100dvw;
   height: 100dvh;
   overflow: hidden;
@@ -316,54 +318,11 @@ select {
 }
 
 .mobile-landscape-stage {
-  width: 100dvw;
-  height: 100dvh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1366px;
+  height: 768px;
   overflow: hidden;
-}
-
-/* Điện thoại đang dọc -> xoay toàn bộ UI sang ngang */
-@media (max-width: 900px) and (orientation: portrait) {
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .mobile-landscape-shell {
-    position: fixed;
-    inset: 0;
-    width: 100dvw;
-    height: 100dvh;
-    overflow: hidden;
-    background: #05010d;
-  }
-
-  .mobile-landscape-stage {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 100dvh;
-    height: 100dvw;
-    transform: translate(-50%, -50%) rotate(90deg);
-    transform-origin: center center;
-    overflow: hidden;
-  }
-}
-
-/* Điện thoại đã xoay ngang thật -> giữ layout bình thường */
-@media (max-width: 900px) and (orientation: landscape) {
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .mobile-landscape-shell,
-  .mobile-landscape-stage {
-    width: 100dvw;
-    height: 100dvh;
-    overflow: hidden;
-  }
+  transform-origin: center center;
 }

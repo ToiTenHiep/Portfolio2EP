@@ -5,18 +5,18 @@ import CyberBackgroundLoader from "@/components/three/CyberBackgroundLoader";
 
 export default function PortfolioScreen() {
   return (
-    <main className="relative h-dvh w-dvw overflow-hidden bg-[#05010d] text-white">
+    <main className="relative h-full w-full overflow-hidden bg-[#05010d] text-white">
       {/* Background full screen */}
       <CyberBackgroundLoader />
 
       {/* HUD grid overlay rất nhẹ */}
-      <div className="pointer-events-none fixed inset-0 z-[1] h-dvh w-dvw bg-[linear-gradient(rgba(255,0,93,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,240,0.018)_1px,transparent_1px)] bg-[size:42px_42px]" />
+      <div className="pointer-events-none absolute inset-0 z-[1] h-full w-full bg-[linear-gradient(rgba(255,0,93,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,240,0.018)_1px,transparent_1px)] bg-[size:42px_42px]" />
 
       {/* Main UI */}
-      <div className="relative z-10 mx-auto h-dvh w-full max-w-[1366px] px-2 pt-0">
+      <div className="relative z-10 mx-auto h-full w-full max-w-[1366px] px-2 pt-0">
         <HeaderHUD />
 
-        <section className="grid h-[calc(100dvh-84px)] grid-cols-[520px_minmax(0,1fr)] gap-10 pt-5">
+        <section className="grid h-[calc(100%_-_84px)] grid-cols-[520px_minmax(0,1fr)] gap-10 pt-5">
           <LeftPanel />
           <RightPanel />
         </section>
