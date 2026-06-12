@@ -304,7 +304,7 @@ select {
 
 /* ================================
    MOBILE LANDSCAPE SCALE LOCK
-   Điện thoại sẽ hiển thị full layout 1366x768.
+   Không ảnh hưởng desktop.
 ================================ */
 
 .mobile-landscape-shell {
@@ -317,12 +317,19 @@ select {
   background: #05010d;
 }
 
-.mobile-landscape-stage {
+.mobile-landscape-rotator {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 1366px;
-  height: 768px;
+  overflow: visible;
+  transform-origin: center center;
+}
+
+.mobile-landscape-stage {
+  position: absolute;
+  left: 0;
+  top: 0;
   overflow: hidden;
   transform-origin: center center;
+  background: #05010d;
 }

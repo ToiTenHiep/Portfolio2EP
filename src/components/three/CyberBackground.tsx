@@ -537,7 +537,7 @@ function Scene() {
 
 export default function CyberBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 h-screen w-screen overflow-hidden bg-[#080014]">
+    <div className="pointer-events-none absolute inset-0 z-0 h-full w-full overflow-hidden bg-[#080014]">
       <div
         className="absolute inset-0"
         style={{
